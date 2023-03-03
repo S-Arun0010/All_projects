@@ -9,6 +9,10 @@ public class Calculator
       
       static PrintStream print = new PrintStream(new PrintStream(new FileOutputStream(FileDescriptor.out)));	
 	  static  double result = 0;
+	private Calculator()
+	  {
+		  
+	  }
 	  public static double getinput()
 	  { 
 		  
