@@ -74,7 +74,6 @@ public class Shape
     		try
     		{
     		  Scanner sc = new Scanner(System.in);
-    	      //print.println("Enter the radius :");
              value = sc.nextInt();
                break;
     		}
@@ -89,7 +88,6 @@ public class Shape
     
     public static void shape()
     {
-        Scanner sc ;
         Scanner s = new Scanner(System.in);
         
         int check=0;
