@@ -5,6 +5,10 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 public class Shape {
 	
+	private Shape ()
+	{
+		
+	}
 	static PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
 
 	String type;
