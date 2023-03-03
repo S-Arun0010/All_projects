@@ -64,7 +64,6 @@ public class Tictactoe {
 					  }
 				  }if(flag==1)
 				  {
-					  print.println( "player " + x + " wins");
 					  return 1;
 				  }
 			  }
