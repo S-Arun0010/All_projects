@@ -19,8 +19,7 @@ public class Tictactoe {
 				print.println();
 				
 			}
-		}
-		
+		}		
 		public static int checkcolumn(char[][] array,int d,char x)
 		{  
 			 flag=0;
@@ -86,6 +85,27 @@ public class Tictactoe {
 			}
 			return 1;
 		}
+		public static void check(char[][] box,int dimension,char x)
+		{
+			if(checkrow(box,dimension,x) == 1  )
+			{
+				print.println(  x + " wins by row");
+				display(box,dimension);
+				return;
+			}
+			else if(checkcolumn(box,dimension,x) == 1)
+			{
+				print.println( x + " wins by column");
+				display(box,dimension);
+				return;
+			}
+			else if(checkdiagnol(box,dimension,x) == 1)
+			{
+				print.println( x + " wins by Diagnol");
+				display(box,dimension);
+				return;
+			}
+		}
 		
 		public static int getinput()
 		{  
@@ -139,7 +159,7 @@ public class Tictactoe {
 				x = getturn(count);
 				position = getinput();
 				
-				if(list.contains(position) || position >(dimension*dimension)-1 || position<=0)
+				if(list.contains(position) || position >(dimension*dimension) || position<=0)
 			    {
 			    	print.println("Invalid Position or Its been already filled:");
 			    	print.println("Re-enter the possition");
@@ -148,43 +168,21 @@ public class Tictactoe {
 			    else
 			    {  
 	                  list.add(position);
-			    }
-				
-				
+			    }				
 				count++;
-				int y=0;
+				int y=1;
 				for(int i=0;i<dimension;i++)
 				{
 					for(int j=0;j<dimension;j++)
 					{
-						if(y == position-1 )
+						if(y == position )
 						{
 							box[i][j] = x;
 						}
 						y++;
 					}
 				}
-	   
-					if(checkrow(box,dimension,x) == 1  )
-					{
-						print.println( "player " + x + " wins by row");
-						display(box,dimension);
-						return;
-					}
-					else if(checkcolumn(box,dimension,x) == 1)
-					{
-						print.println("player " + x + " wins by column");
-						display(box,dimension);
-						return;
-					}
-					else if(checkdiagnol(box,dimension,x) == 1)
-					{
-						print.println("player " + x + " wins by Diagnol");
-						display(box,dimension);
-						return;
-					}
-
-							
+				check(box,dimension,x);				
 			}
 			display(box,dimension);
 			print.println("Match draw");
