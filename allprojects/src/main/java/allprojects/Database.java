@@ -5,6 +5,10 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 public class Database {
+	private Database()
+	{
+		
+	}
 	
 	static PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
 	static Connection con;
