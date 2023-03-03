@@ -32,12 +32,12 @@ public class Creditcard implements Cloneable {
  				 {
  				  if( !((value.charAt(i) >='0') && (value.charAt(i) <='9')) )
  				    {
- 					  throw new Exception("Invalid Card Nmber");
+ 					  throw new InputMismatchException("Invalid Card Nmber");
  				     }
  				 }
  			   break;
  			}
- 			catch(Exception e)
+ 			catch(InputMismatchException e)
  			{
  				print.println(e);
  			}
@@ -57,12 +57,12 @@ public class Creditcard implements Cloneable {
  				{
  				if(!((value.charAt(i) >='0') && (value.charAt(i) <='9') || (value.charAt(i) <='.')))
  				{
- 				throw new Exception("Invalid date");
+ 				throw new InputMismatchException("Invalid date");
  				}
  				}
  				break;
  			}
- 			catch(Exception e)
+ 			catch(InputMismatchException e)
  			{
  				print.println(e);
  			}
