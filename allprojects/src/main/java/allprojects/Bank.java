@@ -36,12 +36,6 @@ public class Bank {
         }
     }
     
-    public boolean handle(String sample)
-    {
-        
-          
-    	return true; 
-    }
     public static void bank()
     {
     	Scanner sc;
