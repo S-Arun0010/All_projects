@@ -4,6 +4,10 @@ import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 public class Points implements Cloneable {
+	private Points()
+	{
+		
+	}
 	
 	static PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
 	private int x;
