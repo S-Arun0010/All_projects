@@ -3,7 +3,11 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 public class Frequency {
-
+        
+	 private Frequency()
+     {
+    	 
+     }
 	public static void frequency()throws IOException 
 	{
 	  PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
@@ -41,7 +45,6 @@ public class Frequency {
           }
       }
       for(Map.Entry<String,Integer> entry : sortedmap.entrySet() ){
-    	  // print.println( entry.getKey() + " =  " + entry.getValue() );
     	   print.println(entry);
     	}
 	}
