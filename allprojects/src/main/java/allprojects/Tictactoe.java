@@ -148,7 +148,7 @@ public class Tictactoe {
 		return x;
 	}
 	
-	public static void tictacto()
+	public static void tictactoe()
 	{   		
 		print.println("Enter the dimension:");
 		int dimension = getinput();
