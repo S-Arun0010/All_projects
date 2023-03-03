@@ -3,12 +3,13 @@ import java.util.*;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-public class Shape {
-	
+public class Shape
+{
 	private Shape ()
 	{
 		
 	}
+	
 	static PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
 
 	String type;
@@ -65,8 +66,29 @@ public class Shape {
     	else
     		return (0.5 * width * height);
     }
+    public static int getinput()
+    {  
+    	int value=0;
+    	do
+    	{   
+    		try
+    		{
+    		  Scanner sc = new Scanner(System.in);
+    	      //print.println("Enter the radius :");
+             value = sc.nextInt();
+               break;
+    		}
+    		catch(InputMismatchException e)
+    		{
+    			print.println(e);
+    		}
+    		
+    	}while(true);
+    	return value;
+    }
     
-    public static void shape() {
+    public static void shape()
+    {
         Scanner sc ;
         Scanner s = new Scanner(System.in);
         
@@ -79,22 +101,8 @@ public class Shape {
         
             case "circle":
             	int radius;
-            	do
-            	{   
-            		try
-            		{
-            		  sc = new Scanner(System.in);
             	      print.println("Enter the radius :");
-                     radius = sc.nextInt();
-                       break;
-            		}
-            		catch(InputMismatchException e)
-            		{
-            			print.println(e);
-            		}
-            		
-            	}while(true);
-            	
+                     radius = getinput();
                 Shape circle = new Shape(shape,radius);
                 print.println("Perimeter of Circle :" + circle.perimeter());
                 print.println("Area of Circle :" + circle.area());
@@ -103,22 +111,9 @@ public class Shape {
             case "rectangle":
             	int length;
             	int width;
-            	do
-            	{
-            		try
-            		{  
-            			sc = new Scanner(System.in);
             			print.println("Enter the length and width :");
-                        length = sc.nextInt();
-                        width = sc.nextInt(); 
-                        break;
-            		}
-            		catch(InputMismatchException e)
-            		{
-            			print.println(e);
-            		}
-            	}while(true);
-            	
+                        length = getinput();
+                        width = getinput(); 
                 Shape rectangle = new Shape(shape,length, width);
                 print.println("Perimeter of rectangle :" + rectangle.perimeter());
                 print.println("Area of rectangle :" + rectangle.area());
@@ -128,23 +123,10 @@ public class Shape {
             	int  side;
             	int  base;
             	int  height;
-            	do
-            	{
-            		try
-            		{
-            			sc = new Scanner(System.in);
             			print.println("Enter the three sides of the traiangle:");
-                        side = sc.nextInt();
-                        base = sc.nextInt();
-                        height = sc.nextInt();
-            			break;
-            		}
-            		catch(InputMismatchException e)
-            		{
-            			print.println(e);
-            		}
-            	}while(true);
-            	
+                        side = getinput();
+                        base = getinput();
+                        height = getinput();
                 Shape triangle = new Shape(shape,side, base, height);
                 print.println("Perimeter of Triangle : " +triangle.perimeter());
                 print.println("Area of Triangle :" + triangle.area());
@@ -152,21 +134,10 @@ public class Shape {
                 
             default:            	
             	print.println("Enter the valid shape :");
-            	do
-            	{
-            		try
-            		{
-            			print.println("Enter 1 to continue 0 to exit:");
-                        check = s.nextInt(); 
-            			break;
-            		}
-            		catch(InputMismatchException e)
-            		{
-            			print.println(e);
-            		}
-            	}while(true);           	           
-        }  
-        
+                break;
+        }
+        print.println("Enter 0 to exit or 1 to continue");
+        check = getinput(); 
         }while(check == 1);
     }
 }
