@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 public class Creditcard implements Cloneable {
 	static PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
+	static Scanner s =  new Scanner(System.in);
 	String name;
 	String cardnumnber;
 	String date;
@@ -18,105 +19,76 @@ public class Creditcard implements Cloneable {
 	{
 		return super.clone();
 	}
-
+     public static String getnumber()
+     {    
+    	String value;
+    	 do
+ 		{
+ 			try
+ 			{
+ 				print.println("Card Number :");
+ 				value = s.nextLine();
+ 				 for(int i=0;i<value.length();i++)
+ 				 {
+ 				  if( !((value.charAt(i) >='0') && (value.charAt(i) <='9')) )
+ 				    {
+ 					  throw new Exception("Invalid Card Nmber");
+ 				     }
+ 				 }
+ 			   break;
+ 			}
+ 			catch(Exception e)
+ 			{
+ 				print.println(e);
+ 			}
+ 		}while(true);
+    	 return value;
+     }
+     public static String getdate()
+     {   
+    	 String value;
+    	 do
+ 		{
+ 			try
+ 			{  
+ 				print.println("Expiry date :");
+ 				value = s.nextLine();
+ 				for(int i=0;i<value.length();i++)
+ 				{
+ 				if(!((value.charAt(i) >='0') && (value.charAt(i) <='9') || (value.charAt(i) <='.')))
+ 				{
+ 				throw new Exception("Invalid date");
+ 				}
+ 				}
+ 				break;
+ 			}
+ 			catch(Exception e)
+ 			{
+ 				print.println(e);
+ 			}
+ 		}while(true);
+    	 return value;
+     }
 	
 	public static void creditcard()throws CloneNotSupportedException {
+		
 		Scanner sc =  new Scanner(System.in);
 		print.println("Enter the Card details");
 		print.println("Card Name :");
 		String name = sc.nextLine();
-		String number;
-		do
-		{
-			try
-			{
-				print.println("Card Number :");
-				 number = sc.nextLine();
-				 for(int i=0;i<number.length();i++)
-				 {
-				  if( !((number.charAt(i) >='0') && (number.charAt(i) <='9')) )
-				    {
-					  throw new Exception("Invalid Card Nmber");
-				     }
-				 }
-			   break;
-			}
-			catch(Exception e)
-			{
-				print.println(e);
-			}
-		}while(true);
-		 
-		String date;
-		do
-		{
-			try
-			{  
-				print.println("Expiry date :");
-				date = sc.nextLine();
-				for(int i=0;i<date.length();i++)
-				{
-				if(!((date.charAt(i) >='0') && (date.charAt(i) <='9') || (date.charAt(i) <='.')))
-				{
-				throw new Exception("Invalid date");
-				}
-				}
-				break;
-			}
-			catch(Exception e)
-			{
-				print.println(e);
-			}
-		}while(true);		
+		
+	    String number = getnumber();
+	    
+		String date = getdate();	
 		Creditcard a = new Creditcard(name,number,date);
+		
 		print.println("Enter the Card details");
 		print.println("Card Name :");
 		String name1 = sc.nextLine();
-		String number1;
-		do
-		{
-			try
-			{
-				print.println("Card_Number :");
-				 number1 = sc.nextLine();
-				 for(int i=0;i<number1.length();i++)
-				 {
-				  if( !((number1.charAt(i) >='0') && (number1.charAt(i) <='9')) )
-				    {
-					  throw new Exception("Invalid Card Nmber");
-				     }
-				 }
-			   break;
-			}
-			catch(Exception e)
-			{
-				print.println(e);
-			}
-		}while(true);
-		 
-		String date1;
-		do
-		{
-			try
-			{  
-				print.println("Expiry date :");
-			     date1 = sc.nextLine();
-				for(int i=0;i<date1.length();i++)
-				{
-				if(!((date1.charAt(i) >='0') && (date1.charAt(i) <='9') || (date1.charAt(i) <='.')))
-				{
-				throw new Exception("Invalid date");
-				}
-				}
-				break;
-			}
-			catch(Exception e)
-			{
-				print.println(e);
-			}
-		}while(true);		
 		
+		String number1 =  getnumber();
 		
+		String date1 =  getdate();
 		Creditcard b = new Creditcard(name1,number1,date1);
 		
 		if((a.cardnumnber).equals(b.cardnumnber))
